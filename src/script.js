@@ -18,6 +18,7 @@ var nextImageFunc = function () {
         indexCount = 0;
     }
     updateImg();
+    countTimer = 0;
 };
 // prev img function
 var prevImageFunc = function () {
@@ -28,7 +29,28 @@ var prevImageFunc = function () {
         carouselClass = carouselClass.children.length - 1;
     }
     updateImg();
+    countTimer = 0;
 };
+// timer for next image:
+var countTimer = 0;
+var timerFunc = function () {
+    setInterval(function () {
+        countTimer += 1;
+        console.log(countTimer);
+        if (countTimer > 5) {
+            if (indexCount < carouselClass.children.length - 1) {
+                indexCount++;
+            }
+            else {
+                indexCount = 0;
+            }
+            updateImg();
+            countTimer = 0;
+            console.log("next");
+        }
+    }, 1000);
+};
+timerFunc();
 // eventlinsters
 nextbutton.addEventListener("click", nextImageFunc);
 prevbutton.addEventListener("click", prevImageFunc);

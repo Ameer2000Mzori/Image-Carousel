@@ -44,10 +44,6 @@ body {
   height: 100%;
 }
 
-.header .head #carousel:hover {
-  transform: translateX(-200%);
-}
-
 .header .head .buttons-Wrap {
   display: flex;
   text-align: center;
